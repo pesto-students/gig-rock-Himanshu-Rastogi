@@ -1,0 +1,16 @@
+.footer-options {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+
+  }
+}
