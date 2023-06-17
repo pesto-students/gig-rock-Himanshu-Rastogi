@@ -1,5 +1,5 @@
 import { AppBar, Button, Toolbar, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./NavBar.css";
@@ -22,6 +22,11 @@ const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleLogout = useCallback(() => {
+    dispatch(logOutUser(navigate));
+    setUser(null);
+  }, [dispatch, navigate]);
+
   useEffect(() => {
     const token = user?.token;
     // console.log("localStorage token:", token);
@@ -35,18 +40,13 @@ const NavBar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location]);
+  }, [location, handleLogout, user?.token]);
 
   useEffect(() => {
     if (!user) {
       handleCloseMenuCard();
     }
   }, [user]);
-
-  const handleLogout = () => {
-    dispatch(logOutUser(navigate));
-    setUser(null);
-  };
 
   const handleOpenModal = (value) => {
     setShowModal(true);

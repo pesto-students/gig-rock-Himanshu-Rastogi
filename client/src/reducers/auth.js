@@ -1,4 +1,4 @@
-export default (auth = [], action) => {
+const authReducer = (auth = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
       return action.payload;
@@ -15,3 +15,5 @@ export default (auth = [], action) => {
       return auth;
   }
 };
+
+export default authReducer;

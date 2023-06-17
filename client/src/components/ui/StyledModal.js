@@ -335,7 +335,7 @@ const StyledModal = (props) => {
 
             {!selectedAccount ? null : selectedAccount ? (
               <div>
-                {selectedAccount == accountArray[0] && (
+                {selectedAccount === accountArray[0] && (
                   <div
                     style={{ display: "flex", flexDirection: "row", gap: 10 }}
                   >

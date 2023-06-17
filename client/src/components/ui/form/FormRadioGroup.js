@@ -30,7 +30,7 @@ const FormRadioGroup = (props) => {
     if (selectedValue) {
       setValue(name, selectedValue);
     }
-  }, [selectedValue]);
+  }, [selectedValue, name, setValue]);
 
   const handleChange = (event) => {
     const isChecked = event.target.value;
