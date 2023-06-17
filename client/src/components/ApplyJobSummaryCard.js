@@ -8,8 +8,15 @@ import { CloseOutlined, FileUploadOutlined } from "@mui/icons-material";
 
 const ApplyJobSummaryCard = (props) => {
   // console.log("modal display");
-  const { showModal, handleClose, modalValue, setOpenApplyCard, setApplyJob } =
-    props;
+  const {
+    showModal,
+    handleClose,
+    modalValue,
+    setOpenApplyCard,
+    setApplyJob,
+    marginTop,
+  } = props;
+  
   const [open, setOpen] = useState(showModal);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [selectedModalValue, setSelectedModalValue] = useState(modalValue);
@@ -45,7 +52,14 @@ const ApplyJobSummaryCard = (props) => {
   };
 
   return (
-    <Card sx={{ borderRadius: 2, width: "90%", zIndex: 1, marginTop: -15 }}>
+    <Card
+      sx={{
+        borderRadius: 2,
+        width: "90%",
+        zIndex: 1,
+        marginTop: marginTop ? marginTop : -15,
+      }}
+    >
       <div
         style={{
           display: "flex",

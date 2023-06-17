@@ -19,10 +19,10 @@ const ProfilePage = (props) => {
         sx={{ justifyContent: "center", width: "100%" }}
         spacing={2}
       >
-        <Grid item xs={11}>
+        <Grid item sm={8} xs={11}>
           <ProfileDetailCard user={user?.result} />
         </Grid>
-        <Grid item xs={11}>
+        <Grid item sm={8} xs={11}>
           <UploadResumeCard />
         </Grid>
       </Grid>

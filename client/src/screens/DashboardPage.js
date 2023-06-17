@@ -36,7 +36,7 @@ const DashboardPage = (props) => {
 
           <Grid
             container
-            sx={{ marginTop: 2, justifyContent: "center" }}
+            sx={{ marginTop: 2, justifyContent: "center", width: "100%" }}
             spacing={2}
           >
             <Grid item sm={5} xs={8} style={{ height: "100%" }}>
@@ -65,7 +65,9 @@ const DashboardPage = (props) => {
         </div>
       ) : (
         <div>
-          <Typography sx={{margin: 5}} variant="h6">Please Login/Register</Typography>
+          <Typography sx={{ margin: 5 }} variant="h6">
+            Please Login/Register
+          </Typography>
         </div>
       )}
     </div>

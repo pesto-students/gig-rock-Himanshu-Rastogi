@@ -96,7 +96,9 @@ const JobsPage = (props) => {
         </Grid>
       </Grid>
 
-      {applyJob && <ApplyJobSummaryCard setApplyJob={setApplyJob} />}
+      {applyJob && (
+        <ApplyJobSummaryCard marginTop={-70} setApplyJob={setApplyJob} />
+      )}
     </div>
   );
 };
