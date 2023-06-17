@@ -1,11 +1,12 @@
 import { Button, Card, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ApplyJobCard = (props) => {
   const { width, applyJobCard, setOpenApplyCard, setApplyJob } = props;
 
   const {
     accountType,
+    userId,
     companyName,
     description,
     experience,
@@ -16,11 +17,19 @@ const ApplyJobCard = (props) => {
   } = applyJobCard ? applyJobCard : {};
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const [isMyJob, setIsMyJob] = useState(false);
 
   const handleOpenApplyCard = () => {
     setOpenApplyCard && setOpenApplyCard(true);
     setApplyJob && setApplyJob(true);
   };
+
+  useEffect(() => {
+    const id = user?.result?.userId === userId;
+    if (id) {
+      setIsMyJob(id);
+    }
+  }, [userId, user?.result?.userId]);
 
   console.log("applyJobCard:", applyJobCard);
 
@@ -48,23 +57,28 @@ const ApplyJobCard = (props) => {
           <Typography sx={{}} variant="body2">
             Job description
           </Typography>
+
           {user ? (
-            <Button
-              sx={{
-                borderRadius: 50,
-                textTransform: "none",
-                backgroundColor: "#633B48",
-                color: "#FFFFFF",
-                paddingTop: 0,
-                paddingBottom: 0,
-              }}
-              color="success"
-              size="small"
-              variant="contained"
-              onClick={handleOpenApplyCard}
-            >
-              Apply now
-            </Button>
+            isMyJob ? (
+              <Typography variant="caption">Can not apply</Typography>
+            ) : (
+              <Button
+                sx={{
+                  borderRadius: 50,
+                  textTransform: "none",
+                  backgroundColor: "#633B48",
+                  color: "#FFFFFF",
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                }}
+                color="success"
+                size="small"
+                variant="contained"
+                onClick={handleOpenApplyCard}
+              >
+                Apply now
+              </Button>
+            )
           ) : (
             <Typography variant="caption">Login/Register to apply</Typography>
           )}

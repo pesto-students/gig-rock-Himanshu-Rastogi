@@ -207,6 +207,7 @@ const StyledModal = (props) => {
                   getValues={getValues}
                   placeholder="youremail@example.com"
                   label="Email"
+                  required="true"
                   autoCapitalize="none"
                   autoCorrect="false"
                 />

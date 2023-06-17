@@ -12,6 +12,7 @@ const FormInput = (props) => {
     getFieldState,
     getValues,
     setValue,
+    required,
     variant,
     fullWidth,
     type,
@@ -43,6 +44,7 @@ const FormInput = (props) => {
             sx={{ width: !fullWidth ? 320 : fullWidth }}
             fullWidth={fullWidth}
             variant={variant}
+            required={required}
             readOnly={readOnly || false}
             type={type}
             error={error?.message && true}
