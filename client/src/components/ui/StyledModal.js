@@ -217,6 +217,7 @@ const StyledModal = (props) => {
                   formState={formState}
                   getFieldState={getFieldState}
                   getValues={getValues}
+                  type="password"
                   placeholder="password"
                   label="Password"
                   autoCapitalize="none"

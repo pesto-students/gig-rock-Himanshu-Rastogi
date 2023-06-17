@@ -16,7 +16,7 @@ const ApplyJobSummaryCard = (props) => {
     setApplyJob,
     marginTop,
   } = props;
-  
+
   const [open, setOpen] = useState(showModal);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [selectedModalValue, setSelectedModalValue] = useState(modalValue);
@@ -98,7 +98,7 @@ const ApplyJobSummaryCard = (props) => {
             }}
           >
             <FileUploadOutlined />
-            <Button
+            {/* <Button
               style={{
                 borderRadius: 50,
                 textTransform: "none",
@@ -112,7 +112,8 @@ const ApplyJobSummaryCard = (props) => {
               variant="contained"
             >
               Choose file
-            </Button>
+            </Button> */}
+            <input type="file" title="Choose file" />
           </div>
         </div>
 
